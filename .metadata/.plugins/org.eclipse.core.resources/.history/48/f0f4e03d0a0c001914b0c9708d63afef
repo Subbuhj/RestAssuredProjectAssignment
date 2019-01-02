@@ -1,0 +1,7 @@
+<suite name="com.restassured.testbase">
+ <test name="RestAssuredTesting">
+ <classes>
+ <class name="com.restassured.testbase.Assignment_One" />
+ </classes>
+ </test>
+</suite>

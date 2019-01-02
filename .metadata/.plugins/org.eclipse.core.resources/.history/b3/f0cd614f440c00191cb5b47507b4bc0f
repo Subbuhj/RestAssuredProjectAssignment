@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<listeners>
+<listener class-name="org.uncommons.reportng.HTMLReporter" />
+<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+</listeners>
+<suite name="com.restassured.testbase">
+ <test name="RestAssuredTesting">
+ <classes>
+ <class name="com.restassured.testbase.Assignment_One.java" />
+ </classes>
+ </test>
+</suite>

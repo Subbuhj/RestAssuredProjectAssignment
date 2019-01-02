@@ -1,0 +1,42 @@
+package restassuredtestbase;
+
+import org.testng.annotations.Test;
+
+import com.restassured.model.BaseCalss;
+
+import io.restassured.RestAssured;
+
+public class Assignment_One extends BaseCalss {
+
+	public static BaseCalss baseclass;
+
+	@Test(priority = 1)
+	public static void assignmentOneGetCount() {
+
+		String restNewUrl = BaseCalss.serviceUrl.replace("{countryCode}", "IND");
+		System.out.println("Current URL :" + restNewUrl);
+
+		RestAssured.given().
+		when().
+		get(restNewUrl).
+		then().
+		log().
+		all().
+		statusCode(200);
+
+	}
+
+	@Test(priority = 2)
+	public static void assignmentOnePassInvalidCode() {
+
+		String restNewUrl = BaseCalss.serviceUrl.replace("{countryCode}", "AUS");
+
+		RestAssured.given().
+		when().
+		get(restNewUrl).
+		then().
+		log().
+		all().
+		statusCode(200);
+	}
+}

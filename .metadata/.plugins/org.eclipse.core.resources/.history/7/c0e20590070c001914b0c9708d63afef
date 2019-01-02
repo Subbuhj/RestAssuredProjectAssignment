@@ -1,0 +1,20 @@
+package com.restassured.testbase;
+
+import org.testng.annotations.Test;
+
+import com.restassured.model.BaseCalss;
+
+import net.serenitybdd.rest.SerenityRest;
+
+public class Assignment_Four extends BaseCalss{
+	
+	@Test
+	public static void assignmentOne() {
+		String country = "IND";
+		
+		SerenityRest.given().pathParam("countryCode",country).when().get().then().statusCode(200);
+		
+	}
+
+}
+ 	

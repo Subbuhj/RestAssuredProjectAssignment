@@ -1,0 +1,36 @@
+package restassuredtestbase;
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
+import io.restassured.response.ResponseOptions;
+import io.restassured.response.ValidatableResponse;
+import io.restassured.specification.RequestSpecification;
+
+public class Assignment_Five {
+
+	@Test(priority = 1)
+	public void AuthenticationBasicsWithValidCredentials() {
+		RestAssured.baseURI = "http://restapi.demoqa.com/authentication/CheckForAuthentication/";
+		RestAssured.given().given().auth().preemptive().basic("ToolsQA", "TestPassword").when().get(RestAssured.baseURI)
+				.then().log().body().statusCode(200);
+
+		Assert.assertTrue(true, "201");
+		Assert.assertTrue(true, "OPERATION_SUCCESS");
+	}
+
+	@Test(priority = 2)
+	public void AuthenticationBasicsWithInvalidCredentials() {
+		RestAssured.baseURI = "http://restapi.demoqa.com/authentication/CheckForAuthentication";
+		RequestSpecification request = RestAssured.given();
+
+		Response response = request.get();
+		System.out.println("Status code: " + response.getStatusCode());
+		System.out.println("Status message " + response.body().asString());
+	}
+
+}

@@ -1,0 +1,43 @@
+package restassuredtestbase;
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import restassuredMian.BaseCalss;
+
+public class Assignment_Three {
+	
+	public static BaseCalss baseclass;
+	
+	@Test (priority = 1)
+	public void RegistrationSuccessful(){ 
+	 String restNewUrl = BaseCalss.serviceUrl.replace("http://services.groupkt.com/state/get/{countryCode}/all", "http://restapi.demoqa.com/customer/register");
+	 RequestSpecification request = RestAssured.given();
+	 request.header("Content-Type", "application/json");
+	 
+	 JSONObject requestParams = new JSONObject();
+	 requestParams.put("FirstName", "TestRest4");
+	 requestParams.put("LastName", "RestTest4");
+	 requestParams.put("UserName", "sdimpleuser20184");
+	 requestParams.put("Password", "password124");	 
+	 requestParams.put("Email",  "sampletest12344@gmail.com");
+	 RestAssured.when();
+	 request.body(requestParams.toString());
+	 Response response = request.post(restNewUrl);
+	 response.getBody().toString();
+	 response.asString();
+	 System.out.println(requestParams.toString());
+	 System.out.println(response.asString());
+	 
+	 int statusCode = response.getStatusCode();
+	 Assert.assertTrue(true, "200");
+	// Assert.assertEquals(statusCode, "201");
+	 String successCode = response.jsonPath().get("SuccessCode");
+	Assert.assertEquals( "FAULT_USER_ALREADY_EXISTS", successCode, "User already exists");
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.restassured.testbase;
+
+import org.testng.annotations.BeforeClass;
+
+import io.restassured.RestAssured;
+
+public class BaseCalss {
+	
+	//static String RestAssured.baseURI = "http://services.groupkt.com/state/get/{countryCode}/all" ; 
+    //static String newUrl = "http://services.groupkt.com/state/get/country/all" ; 
+	
+	@BeforeClass
+	public static void inti() {
+		//static String RestAssured ;
+		String baseURI = "http://services.groupkt.com/state/get/{countryCode}/all"; 
+		System.out.println(baseURI);
+		
+		
+	}
+
+}

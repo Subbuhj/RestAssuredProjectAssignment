@@ -1,0 +1,12 @@
+package com.restassured.testbase;
+
+import org.testng.annotations.Test;
+
+import com.restassured.model.BaseCalss;
+
+import io.restassured.RestAssured;
+
+public class Assignment_Four {
+
+}
+ 	

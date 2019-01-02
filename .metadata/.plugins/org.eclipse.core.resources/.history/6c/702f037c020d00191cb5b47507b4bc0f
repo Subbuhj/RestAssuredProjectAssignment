@@ -1,0 +1,72 @@
+package restassuredtestbase;
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import restassuredMian.BaseCalss;
+
+public class Assignment_Three {
+
+	public static BaseCalss baseclass;
+
+	@Test(priority = 1)
+	public void RegistrationSuccessful() {
+		String restNewUrl = BaseCalss.serviceUrl.replace("http://services.groupkt.com/state/get/{countryCode}/all",
+				"http://restapi.demoqa.com/customer/register");
+		RequestSpecification request = RestAssured.given();
+		request.header("Content-Type", "application/json");
+
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("FirstName", "TestRest5");
+		requestParams.put("LastName", "RestTest5");
+		requestParams.put("UserName", "sdimpleuser20185");
+		requestParams.put("Password", "password125");
+		requestParams.put("Email", "sampletest12345@gmail.com");
+		RestAssured.when();
+		request.body(requestParams.toString());
+		Response response = request.post(restNewUrl);
+		response.getBody().toString();
+		response.asString();
+		System.out.println(requestParams.toString());
+		System.out.println(response.asString());
+
+		int statusCode = response.getStatusCode();
+		Assert.assertTrue(true, "201");
+		Assert.assertEquals(statusCode, 201, "Correct status code returned");
+		String successCode = response.jsonPath().getString("SuccessCode");
+		Assert.assertEquals(successCode, "OPERATION_SUCCESS");
+	}
+
+	@Test(priority = 1)
+	public void RegistrationWithAlreadyExistingUser() {
+		String restNewUrl = BaseCalss.serviceUrl.replace("http://services.groupkt.com/state/get/{countryCode}/all",
+				"http://restapi.demoqa.com/customer/register");
+		RequestSpecification request = RestAssured.given();
+		request.header("Content-Type", "application/json");
+
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("FirstName", "TestRest5");
+		requestParams.put("LastName", "RestTest5");
+		requestParams.put("UserName", "sdimpleuser20185");
+		requestParams.put("Password", "password125");
+		requestParams.put("Email", "sampletest12345@gmail.com");
+		RestAssured.when();
+		request.body(requestParams.toString());
+		Response response = request.post(restNewUrl);
+		response.getBody().toString();
+		response.asString();
+		System.out.println(requestParams.toString());
+		System.out.println(response.asString());
+
+		int statusCode = response.getStatusCode();
+		Assert.assertTrue(true, "200");
+		Assert.assertEquals(statusCode, 200, "Correct status code returned");
+		String successCode = response.jsonPath().getString("fault");
+		Assert.assertEquals(successCode, "FAULT_USER_ALREADY_EXISTS");
+	}
+
+}

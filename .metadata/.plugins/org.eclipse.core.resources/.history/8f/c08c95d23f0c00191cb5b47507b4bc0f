@@ -1,0 +1,24 @@
+package com.restassured.testbase;
+
+import org.testng.annotations.Test;
+
+import com.restassured.model.BaseCalss;
+
+import io.restassured.RestAssured;
+
+public class Assignment_One extends BaseCalss{
+
+	
+	@Test
+	public static void assignmentOne() {
+		
+		String country = "IND";
+		String newUrl = "RestAssured.baseURI";
+		
+		
+		RestAssured.given().param("countryCode",country).when().get(RestAssured.baseURI).then().log().all().statusCode(200);
+		//RestAssured.given().when().get().then().log().all().statusCode(200);
+		
+	}
+
+}

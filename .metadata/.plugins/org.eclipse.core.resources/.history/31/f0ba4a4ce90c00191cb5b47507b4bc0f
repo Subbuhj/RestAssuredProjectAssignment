@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="com.restassured.testbase" duration-ms="4853" started-at="2018-12-31T10:18:17Z" finished-at="2018-12-31T10:18:22Z">
+    <groups>
+    </groups>
+    <test name="RestAssuredTesting1" duration-ms="2930" started-at="2018-12-31T10:18:17Z" finished-at="2018-12-31T10:18:20Z">
+      <class name="com.restassured.testbase.Assignment_One">
+        <test-method status="PASS" signature="inti()[pri:0, instance:com.restassured.testbase.Assignment_One@29774679]" name="inti" is-config="true" duration-ms="375" started-at="2018-12-31T10:18:17Z" finished-at="2018-12-31T10:18:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inti -->
+        <test-method status="PASS" signature="assignmentOneGetCount()[pri:1, instance:com.restassured.testbase.Assignment_One@29774679]" name="assignmentOneGetCount" duration-ms="1949" started-at="2018-12-31T10:18:17Z" finished-at="2018-12-31T10:18:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignmentOneGetCount -->
+        <test-method status="PASS" signature="assignmentOnePassInvalidCode()[pri:2, instance:com.restassured.testbase.Assignment_One@29774679]" name="assignmentOnePassInvalidCode" duration-ms="583" started-at="2018-12-31T10:18:19Z" finished-at="2018-12-31T10:18:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignmentOnePassInvalidCode -->
+      </class> <!-- com.restassured.testbase.Assignment_One -->
+    </test> <!-- RestAssuredTesting1 -->
+    <test name="RestAssuredTesting2" duration-ms="1870" started-at="2018-12-31T10:18:20Z" finished-at="2018-12-31T10:18:22Z">
+      <class name="com.restassured.testbase.Assignment_Two">
+        <test-method status="PASS" signature="inti()[pri:0, instance:com.restassured.testbase.Assignment_Two@e25b2fe]" name="inti" is-config="true" duration-ms="0" started-at="2018-12-31T10:18:20Z" finished-at="2018-12-31T10:18:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- inti -->
+        <test-method status="PASS" signature="assignmentTwoGetCount()[pri:1, instance:com.restassured.testbase.Assignment_Two@e25b2fe]" name="assignmentTwoGetCount" duration-ms="629" started-at="2018-12-31T10:18:20Z" finished-at="2018-12-31T10:18:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignmentTwoGetCount -->
+        <test-method status="PASS" signature="assignmentTwoGetState()[pri:2, instance:com.restassured.testbase.Assignment_Two@e25b2fe]" name="assignmentTwoGetState" duration-ms="684" started-at="2018-12-31T10:18:21Z" finished-at="2018-12-31T10:18:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignmentTwoGetState -->
+        <test-method status="PASS" signature="assignmentTwoGetMPdetails()[pri:3, instance:com.restassured.testbase.Assignment_Two@e25b2fe]" name="assignmentTwoGetMPdetails" duration-ms="547" started-at="2018-12-31T10:18:21Z" finished-at="2018-12-31T10:18:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assignmentTwoGetMPdetails -->
+      </class> <!-- com.restassured.testbase.Assignment_Two -->
+    </test> <!-- RestAssuredTesting2 -->
+  </suite> <!-- com.restassured.testbase -->
+</testng-results>

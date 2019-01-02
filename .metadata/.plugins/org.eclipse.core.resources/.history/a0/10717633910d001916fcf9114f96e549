@@ -1,0 +1,14 @@
+package restassuredMian;
+
+import java.io.File;
+
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+
+public class Common {
+	@AfterClass
+public static void writeExtentReport() {
+		 Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
+
+}
+}

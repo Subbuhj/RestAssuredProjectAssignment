@@ -1,0 +1,18 @@
+package com.restassured.testbase;
+
+import org.testng.annotations.BeforeClass;
+
+import io.restassured.RestAssured;
+
+public class BaseCalss {
+
+	static String serviceUrl = "http://services.groupkt.com/state/get/{countryCode}/all";
+
+	@BeforeClass
+	public static void inti() {
+		RestAssured.baseURI = serviceUrl;
+		System.out.println(RestAssured.baseURI);
+
+	}
+
+}

@@ -1,0 +1,68 @@
+package restassuredtestbase;
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import restassuredMian.BaseCalss;
+
+public class Assignment_Four {
+
+	public static BaseCalss baseclass;
+
+	@Test(priority = 1)
+	public void RegistrationSuccessful() {
+		String restNewUrl = BaseCalss.serviceUrl.replace("http://services.groupkt.com/state/get/{countryCode}/all",
+				"http://restapi.demoqa.com/authentication/CheckForAuthentication");
+		RequestSpecification request = RestAssured.given();
+		request.header("Content-Type", "application/json");
+
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("UserName", "ToolsQA");
+		requestParams.put("Password", "TestPassword");
+		RestAssured.when();
+		request.body(requestParams.toString());
+		Response response = request.get(restNewUrl);
+		response.getBody().toString();
+		response.asString();
+		request.log();
+		System.out.println(requestParams.toString());
+		System.out.println(response.asString());
+
+		int statusCode = response.getStatusCode();
+		Assert.assertTrue(true, "201");
+		Assert.assertEquals(statusCode, 201, "Correct status code returned");
+		String successCode = response.jsonPath().getString("Fault");
+		Assert.assertEquals(successCode, "Operation completed successfully");
+	}
+
+	@Test(priority = 1)
+	public void RegistrationWithAlreadyExistingUser() {
+		String restNewUrl = BaseCalss.serviceUrl.replace("http://services.groupkt.com/state/get/{countryCode}/all",
+				"http://restapi.demoqa.com/authentication/CheckForAuthentication");
+		RequestSpecification request = RestAssured.given();
+		request.header("Content-Type", "application/json");
+
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("UserName", "abcd1234");
+		requestParams.put("Password", "pass12345");
+		RestAssured.when();
+		request.body(requestParams.toString());
+		Response response = request.post(restNewUrl);
+		response.getBody().toString();
+		response.asString();
+		response.body();
+		System.out.println(requestParams.toString());
+		System.out.println(response.asString());
+
+		int statusCode = response.getStatusCode();
+		Assert.assertTrue(true, "401");
+		Assert.assertEquals(statusCode, 401, "Correct status code returned");
+		String successCode = response.jsonPath().getString("Status");
+		Assert.assertEquals(successCode, "Invalid or expired Authentication key provided");
+	}
+
+}

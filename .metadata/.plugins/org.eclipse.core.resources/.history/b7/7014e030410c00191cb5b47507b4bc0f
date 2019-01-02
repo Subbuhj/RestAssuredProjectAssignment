@@ -1,0 +1,39 @@
+package com.restassured.testbase;
+
+import org.testng.annotations.Test;
+
+import com.restassured.model.BaseCalss;
+
+import io.restassured.RestAssured;
+
+public class Assignment_One extends BaseCalss{
+
+	static String BaseURl = RestAssured.baseURI;
+	
+	@Test (priority=1)
+	public static void assignmentOne() {
+		
+		String restUrl = "http://services.groupkt.com/state/get/IND/all";
+		String restNewUrl = restUrl.replace(BaseURl, restUrl);
+		
+		
+		//RestAssured.given().param("countryCode",country).when().get(RestAssured.baseURI).then().log().all().statusCode(200);
+		RestAssured.given().when().get(restNewUrl).then().log().all().statusCode(200);
+		
+	}
+	
+	@Test (priority=2)
+	public static void assignmentOnePluseOne() {
+		
+		String restUrl = "http://services.groupkt.com/state/get/AUS/all";
+		String restNewUrl = restUrl.replace(BaseURl, restUrl);
+		String expected = "Total [36] records found.";
+
+		
+		
+		//RestAssured.given().param("countryCode",country).when().get(RestAssured.baseURI).then().log().all().statusCode(200);
+		RestAssured.given().when().get(restNewUrl).then().log().all().statusCode(200).equals(expected);
+		
+	}
+
+}

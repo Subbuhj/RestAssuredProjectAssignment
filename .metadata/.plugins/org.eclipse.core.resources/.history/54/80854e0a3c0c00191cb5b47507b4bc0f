@@ -1,0 +1,18 @@
+package com.restassured.model;
+
+import org.testng.annotations.BeforeClass;
+
+import io.restassured.RestAssured;
+
+public class BaseCalss {
+	
+	String countryCode = "country";
+	String country = "IND";
+	
+	@BeforeClass
+	public static void inti() {
+		RestAssured.baseURI = "http://services.groupkt.com/state/get/{countryCode}/all";
+		
+	}
+
+}

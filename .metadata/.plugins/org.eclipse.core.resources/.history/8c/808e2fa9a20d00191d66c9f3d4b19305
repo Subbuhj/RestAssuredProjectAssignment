@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="restassuredtestbase">
+
+	<listeners>
+		<listener class-name="restassuredMian.Common"></listener>
+	</listeners>
+
+	<test name="RestAssuredTesting1">
+		<classes>
+			<class name="restassuredtestbase.Assignment_One" />
+		</classes>
+	</test>
+<!-- 
+	<test name="RestAssuredTesting2">
+		<classes>
+			<class name="restassuredtestbase.Assignment_Two" />
+		</classes>
+	</test>
+
+	<test name="RestAssuredTesting3">
+		<classes>
+			<class name="restassuredtestbase.Assignment_Three" />
+		</classes>
+	</test>
+
+	<test name="RestAssuredTesting4">
+		<classes>
+			<class name="restassuredtestbase.Assignment_Four" />
+		</classes>
+	</test> -->
+
+</suite>

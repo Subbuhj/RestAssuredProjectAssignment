@@ -1,0 +1,7 @@
+<suite name="Restassured.project">
+ <test name="scr/test/java">
+ <classes>
+ <class name="Restassured.project.Assignment_One" />
+ </classes>
+ </test>
+</suite>

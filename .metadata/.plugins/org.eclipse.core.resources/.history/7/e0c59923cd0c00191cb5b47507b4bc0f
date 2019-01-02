@@ -1,0 +1,44 @@
+package com.restassured.testbase;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+
+public class Assignment_Two extends BaseCalss {
+	
+	public static BaseCalss baseclass;
+
+	@Test(priority = 1)
+	public static void assignmentOne() {
+
+		String restNewUrl = BaseCalss.urlToReplace.replace("get/{countryCode}/all", "search/IND?text=pradesh");
+
+		RestAssured.given().
+		when().
+		get(restNewUrl).
+		then().
+		log().
+		all().
+		statusCode(200);
+		Assert.assertTrue(true, "Total [5] records found.");
+
+	}
+
+	@Test(priority = 2)
+	public static void assignmentOnePluseOne() {
+
+		String restNewUrl = BaseCalss.urlToReplace.replace("get/{countryCode}/all", "search/IND?text=AP");
+
+
+		RestAssured.given().
+		when().
+		get(restNewUrl).
+		then().
+		log().
+		all().
+		statusCode(200);
+		Assert.assertTrue(true, "Hyderabad Amaravati");
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.restassured.testbase;
+
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+
+public class Assignment_One extends BaseCalss {
+
+	public static BaseCalss baseclass;
+
+	@Test(priority = 1)
+	public static void assignmentOne() {
+
+		String restNewUrl = BaseCalss.urlToReplace.replace("{countryCode}", "IND");
+		System.out.println("Current URL :" + restNewUrl);
+
+		RestAssured.given().when().get(restNewUrl).then().log().all().statusCode(200);
+
+	}
+
+	@Test(priority = 2)
+	public static void assignmentOnePluseOne() {
+
+		String restNewUrl = BaseCalss.urlToReplace.replace("{countryCode}", "AUS");
+
+		RestAssured.given().when().get(restNewUrl).then().log().all().statusCode(200);
+	}
+}

@@ -1,0 +1,19 @@
+package com.restassured.model;
+
+import org.testng.annotations.BeforeClass;
+
+import io.restassured.RestAssured;
+
+public class BaseCalss {
+	
+	static String urlToReplace = "//country//all" ; 
+    static String newUrl = "http://services.groupkt.com/state/get/{countryCode}/all" ; 
+	
+	@BeforeClass
+	public static void inti() {
+		RestAssured.baseURI = newUrl.replace(urlToReplace , newUrl);
+		
+		
+	}
+
+}

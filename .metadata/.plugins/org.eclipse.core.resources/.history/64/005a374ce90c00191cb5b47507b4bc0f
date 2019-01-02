@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [com.restassured.testbase]">
+  <test name="RestAssuredTesting1(failed)">
+    <classes>
+      <class name="com.restassured.testbase.Assignment_One">
+        <methods>
+          <include name="assignmentOnePassInvalidCode"/>
+          <include name="assignmentOneGetCount"/>
+          <include name="inti"/>
+        </methods>
+      </class> <!-- com.restassured.testbase.Assignment_One -->
+    </classes>
+  </test> <!-- RestAssuredTesting1(failed) -->
+  <test name="RestAssuredTesting2(failed)">
+    <classes>
+      <class name="com.restassured.testbase.Assignment_Two">
+        <methods>
+          <include name="assignmentTwoGetState"/>
+          <include name="assignmentTwoGetMPdetails"/>
+          <include name="assignmentTwoGetCount"/>
+          <include name="inti"/>
+        </methods>
+      </class> <!-- com.restassured.testbase.Assignment_Two -->
+    </classes>
+  </test> <!-- RestAssuredTesting2(failed) -->
+</suite> <!-- Failed suite [com.restassured.testbase] -->

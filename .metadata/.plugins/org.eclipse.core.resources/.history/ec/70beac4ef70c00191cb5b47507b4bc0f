@@ -1,0 +1,37 @@
+package restassuredtestbase;
+
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import restassuredMian.BaseCalss;
+
+public class Assignment_Three {
+	
+	public static BaseCalss baseclass;
+	
+	@Test (priority = 1)
+	public void RegistrationSuccessful(){ 
+	 String restNewUrl = BaseCalss.serviceUrl.replace("http://services.groupkt.com/state/get/{countryCode}/all", "http://restapi.demoqa.com/customer/register");
+	 RequestSpecification request = RestAssured.given();
+	 
+	 JSONObject requestParams = new JSONObject();
+	 requestParams.put("FirstName", "TestRest2");
+	 requestParams.put("LastName", "RestTest2");
+	 requestParams.put("UserName", "sdimpleuser20182");
+	 requestParams.put("Password", "password122");
+	 
+	 requestParams.put("Email",  "sampletest12342@gmail.com");
+	 request.body(requestParams.toString());
+	 Response response = request.post(restNewUrl);
+	 
+	 int statusCode = response.getStatusCode();
+	 Assert.assertEquals(statusCode, "201");
+	 //String successCode = response.jsonPath().get("SuccessCode");
+	//Assert.assertEquals( "Operation completed successfully", successCode, "OPERATION_SUCCESS");
+	}
+
+}
